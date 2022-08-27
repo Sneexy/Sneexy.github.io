@@ -1,0 +1,47 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Sneexy的神奇口袋",
+    "subtitle": "",
+    "icon": "https://sneexy.github.io/images/favicon.ico",
+    "description": "热爱可抵岁月漫长",
+    "home_page_url": "https://sneexy.github.io",
+    "items": [
+        {
+            "id": "https://sneexy.github.io/2022/08/27/site/%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE/",
+            "url": "https://sneexy.github.io/2022/08/27/site/%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE/",
+            "title": "网站设置",
+            "date_published": "2022-08-27T04:16:45.000Z",
+            "content_html": "<h1 id=\"常用命令\"><a class=\"anchor\" href=\"#常用命令\">#</a> 常用命令</h1>\n<ul>\n<li>Hexo 命令（<span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL3poLWNuLw==\">官网</span>）\n<ul>\n<li>hexo clean</li>\n<li>hexo g</li>\n<li>hexo server</li>\n<li>hexo d</li>\n</ul>\n</li>\n<li>git 命令\n<ul>\n<li>git add .</li>\n<li>git commit -m &quot;&quot;</li>\n<li>git push</li>\n</ul>\n</li>\n</ul>\n<h1 id=\"配置\"><a class=\"anchor\" href=\"#配置\">#</a> 配置</h1>\n<ol>\n<li>把内容 git clone 下来， <code>git clone git@github.com:Sneexy/WebsiteContent.git</code></li>\n<li>在项目文件夹 <code>WebsiteContent</code>  下把 shoka（<span class=\"exturl\" data-url=\"aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==\">hexo-theme-shoka</span>）拉下来，文件夹名字改为 shoka</li>\n<li><code>npm i hexo-renderer-multi-markdown-it --save --ignore-scripts</code></li>\n<li><code>npm install</code></li>\n</ol>\n<p>环境整坏了时：</p>\n<ol>\n<li>卸载 nodejs：<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuY3Nkbi5uZXQvdGFncy9NdHphUWczc016YzVOelF0WW14dlp3TzBPME9PME8wTy5odG1s\">brew mac 卸载 nodejs - CSDN</span></li>\n<li>重装 nodejs（for npm）：<span class=\"exturl\" data-url=\"aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwODkxMzIyL2FydGljbGUvZGV0YWlscy8xMDkzMzYyNjY=\">mac 通过 HomeBrew 安装 node.js（自带 npm 包管理器）</span></li>\n</ol>\n<h1 id=\"添加包依赖\"><a class=\"anchor\" href=\"#添加包依赖\">#</a> 添加包依赖</h1>\n<p><code>package.json</code>  的 <code>dependencies</code>  里按格式添加</p>\n<h1 id=\"使用效果\"><a class=\"anchor\" href=\"#使用效果\">#</a> 使用效果</h1>\n<h2 id=\"添加友链\"><a class=\"anchor\" href=\"#添加友链\">#</a> 添加友链</h2>\n<ol>\n<li>\n<p>在 <code>source/friends</code>  文件夹的 <code>_data.yml</code>  里按照以下格式（<span class=\"exturl\" data-url=\"aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9zcGVjaWFsLw==\">项介绍</span>）</p>\n<figure class=\"highlight yml\"><figcaption data-lang=\"YAML\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre><span class=\"token punctuation\">-</span> <span class=\"token key atrule\">site</span><span class=\"token punctuation\">:</span> <span class=\"token comment\">#站点名称</span></pre></td></tr><tr><td data-num=\"2\"></td><td><pre>  <span class=\"token key atrule\">owner</span><span class=\"token punctuation\">:</span> <span class=\"token comment\">#管理员名字</span></pre></td></tr><tr><td data-num=\"3\"></td><td><pre>  <span class=\"token key atrule\">url</span><span class=\"token punctuation\">:</span> <span class=\"token comment\">#站点网址</span></pre></td></tr><tr><td data-num=\"4\"></td><td><pre>  <span class=\"token key atrule\">desc</span><span class=\"token punctuation\">:</span> <span class=\"token comment\">#简短描述</span></pre></td></tr><tr><td data-num=\"5\"></td><td><pre>  <span class=\"token key atrule\">image</span><span class=\"token punctuation\">:</span> <span class=\"token comment\">#一张图片</span></pre></td></tr><tr><td data-num=\"6\"></td><td><pre>  <span class=\"token key atrule\">color</span><span class=\"token punctuation\">:</span> <span class=\"token comment\">#颜色代码</span></pre></td></tr></table></figure></li>\n<li>\n<p>在 <code>source/friends</code>  文件夹的 <code>index.md</code>  里适当地方写上 <code>&#123;% linksfile friends/_data.yml %&#125;</code> 。</p>\n</li>\n</ol>\n<h2 id=\"隐藏文字\"><a class=\"anchor\" href=\"#隐藏文字\">#</a> 隐藏文字</h2>\n<p><span class=\"exturl\" data-url=\"aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9zcGVjaWFsLw==\">功能介绍</span></p>\n<p>使用格式（感叹号和文字间不要有空格）（本地不能查看，需要渲染后网站上看）</p>\n<pre><code>!!黑幕黑幕黑幕黑幕黑幕黑幕!!： 鼠标滑过显示内容\n!!模糊模糊模糊模糊模糊模糊!!&#123;.bulr&#125; ： 选中文字显示内容\n</code></pre>\n",
+            "tags": [
+                "网站",
+                "工具"
+            ]
+        },
+        {
+            "id": "https://sneexy.github.io/2022/08/27/drama/CV/%E9%99%88%E6%83%B3%E5%85%88%E7%94%9F-%E9%99%88%E5%B0%8FC/",
+            "url": "https://sneexy.github.io/2022/08/27/drama/CV/%E9%99%88%E6%83%B3%E5%85%88%E7%94%9F-%E9%99%88%E5%B0%8FC/",
+            "title": "陈想先生/陈小C",
+            "date_published": "2022-08-27T01:24:41.000Z",
+            "content_html": "<p>之前写过一个推荐贴：<span class=\"exturl\" data-url=\"aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9ncm91cC90b3BpYy8yNjU2NDM4MjgvP19pPTE1NzUxNTBxMXVkbll1LDE1NzUyMThxMXVkbll1\">CV 陈小 C / 陈想先生 - 气质美人 (douban.com)</span>。</p>\n<h2 id=\"陈小c的声音总结\"><a class=\"anchor\" href=\"#陈小c的声音总结\">#</a> 陈小 C 的声音总结</h2>\n<p>陈小 C 的声音有玉的质感，温润、干净、气质、高贵、自信的大美人，可以是女王受，虽然是纤细的受音，但可以很有气势。可以执着、腹黑、傲娇、冰冷，也可以天真、沙雕，风骚、闷骚。笑起来和撒娇的时候最让人受不住。</p>\n<p>听过的剧里，他的演技都挺好的，虽然声线有限制，但是情绪很饱满多变，配得很自然。听过的剧里《困流》和《我只要你》角色性格比较立体，演技比较明显。</p>\n<p>选剧也很对我胃口，大部分都挺虐的，就算是 he，也得虐过了再 he。而且还得是从过去，到故事开始，到故事结尾，一直虐。身心都要虐。典型的有《桃魅》。</p>\n<p>很多人分不清他和林予曦，但是在我听来，一个是大家闺秀，一个是小家碧玉，陈小 C 虽然是受音，但攻气十足，高傲自信；林予曦的声音就没什么攻击力，软软糯糯像个小白兔，让人想 rua，发脾气跟撒娇卖萌似的，很多时候角色自卑内省。</p>\n<h2 id=\"声音指路\"><a class=\"anchor\" href=\"#声音指路\">#</a> 声音指路</h2>\n<p><div class=\"links\"><div class=\"item\" title=\"陈想先生\"><span class=\"exturl image\" data-url=\"aHR0cHM6Ly93d3cubWlzc2V2YW4uY29tL3NlaXkvMTE0OQ==\" data-background-image=\"/images/avatar.jpg\"></span>\n          <div class=\"info\">\n          <span class=\"exturl title\" data-url=\"aHR0cHM6Ly93d3cubWlzc2V2YW4uY29tL3NlaXkvMTE0OQ==\">陈想先生-水岸聆音</span>\n          <p class=\"desc\">猫耳FM：剧集&朗读</p>\n          </div></div><div class=\"item\" title=\"周小元宵的槲寄生\"><span class=\"exturl image\" data-url=\"aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vOTYxOTIxMTIvc2VhcmNoL3ZpZGVvP2tleXdvcmQ9JUU5JTk5JTg4JUU2JTgzJUIzJUU1JTg1JTg4JUU3JTk0JTlG\" data-background-image=\"/images/404.png\"></span>\n          <div class=\"info\">\n          <span class=\"exturl title\" data-url=\"aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vOTYxOTIxMTIvc2VhcmNoL3ZpZGVvP2tleXdvcmQ9JUU5JTk5JTg4JUU2JTgzJUIzJUU1JTg1JTg4JUU3JTk0JTlG\">周小元宵的槲寄生</span>\n          <p class=\"desc\">B站-朗读单截</p>\n          </div></div></div></p>\n<ul>\n<li>每周三晚漫播直播</li>\n</ul>\n<h2 id=\"听过的剧时间顺序\"><a class=\"anchor\" href=\"#听过的剧时间顺序\">#</a> 听过的剧（时间顺序）</h2>\n<p>格式：《标题》声优：评分（期数）</p>\n<ul>\n<li>《困流》阿册 / HolyNightX 陈小 C：★★★★★（5）</li>\n<li>《友谊的小船，说翻就翻》陈小 CX 林予曦：★★★☆（1）</li>\n<li>《我只要你》轩辕靖日 X 陈小 C：★★★★☆（3）</li>\n<li>《桃魅》风允之 X 陈小 C：★★★★☆（4）</li>\n<li>《姑妄听之》轩辕靖日 X 陈小 C：★★★★（1）</li>\n<li>《一个人的绅士》羊仔 X 陈小 C：★★★☆（1）</li>\n<li>《都是赖床惹的祸》陈小 CX 小坠：★★★☆（1）</li>\n<li>《喜欢你》鲨鱼 X 陈小 C：★★★☆（1）</li>\n<li>《未亡人》鲨鱼 X 陈小 C：★★★（1）</li>\n<li>《罂粟》魅影之声 X 陈小 C：★★★★（1）</li>\n<li>《痛感》夙七烈 X 陈小 C：★★★☆（1）</li>\n<li>[不更]《关河令》陈小 CX 矜持 ING：★★★☆（1）</li>\n<li>《你是人间小甜饼》 HolyNight X 陈小 C：★★★（2）</li>\n<li>《年少与妖娆》唱油条 X 陈小 C：★★★★☆（5）</li>\n<li>[不更]《三十而受》阎摩 X 陈小 C：★★★☆（2）</li>\n<li>[不更]《被爱妄想症》江笙 X 陈小 C（2）</li>\n<li>[不更]《折枝 / 阶下囚》燃 X 陈小 C（2）</li>\n</ul>\n<h3 id=\"追平\"><a class=\"anchor\" href=\"#追平\">#</a> 追平</h3>\n<ul>\n<li>《二进制》正经太郎 X 陈小 C：★★★★（4）</li>\n<li>《我和替身渣攻恋爱后白月光回来了》续续点灯 X 陈小 C（1）</li>\n<li>《替罪羊》轩辕靖日 X 陈小 C（3 上）</li>\n<li>《满分赝品》皮皮鲨 X 陈想先生（1）</li>\n</ul>\n",
+            "tags": [
+                "广播剧",
+                "声优",
+                "声优",
+                "女王受",
+                "美人音"
+            ]
+        },
+        {
+            "id": "https://sneexy.github.io/2022/08/26/writing/Hello-World/",
+            "url": "https://sneexy.github.io/2022/08/26/writing/Hello-World/",
+            "title": "Hello World",
+            "date_published": "2022-08-26T14:45:21.000Z",
+            "content_html": "<p>感谢大佬 <a href=\"zhaoyangmushiyi.github.io\">@Monochrome</a> 帮忙建站。代码和服务托管在 Github，网站框架为<span class=\"exturl\" data-url=\"aHR0cHM6Ly9oZXhvLmlvL3poLWNuLw==\"> Hexo</span>。</p>\n<p>一直以来的 All in One 的想法终于可以在这里实现了，也不用担心和谐。</p>\n<p>记录一些声优、广播剧、编程相关，也可能出现其他一切。</p>\n<p>暂时使用了小 C 的头像，最近很喜欢小 C (๑・͈ᴗ・͈)。</p>\n",
+            "tags": [
+                "日志",
+                "Hello_World",
+                "日志"
+            ]
+        }
+    ]
+}

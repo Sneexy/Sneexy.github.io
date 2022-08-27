@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://sneexy.github.io</id>
+    <title>Sneexy的神奇口袋</title>
+    <subtitle></subtitle>
+    <icon>https://sneexy.github.io/images/favicon.ico</icon>
+    <link href="https://sneexy.github.io" />
+    <author>
+      <name>清泉</name>
+    </author>
+    <updated>2022-08-27T04:16:45.000Z</updated>
+    <category term="编程" />
+    <category term="广播剧" />
+    <category term="音乐" />
+    <entry>
+        <id>https://sneexy.github.io/2022/08/27/site/%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE/</id>
+        <title>网站设置</title>
+        <link rel="alternate" href="https://sneexy.github.io/2022/08/27/site/%E7%BD%91%E7%AB%99%E8%AE%BE%E7%BD%AE/"/>
+        <content type="html">&lt;h1 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Hexo 命令（&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuLw==&#34;&gt;官网&lt;/span&gt;）
+&lt;ul&gt;
+&lt;li&gt;hexo clean&lt;/li&gt;
+&lt;li&gt;hexo g&lt;/li&gt;
+&lt;li&gt;hexo server&lt;/li&gt;
+&lt;li&gt;hexo d&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;git 命令
+&lt;ul&gt;
+&lt;li&gt;git add .&lt;/li&gt;
+&lt;li&gt;git commit -m &amp;quot;&amp;quot;&lt;/li&gt;
+&lt;li&gt;git push&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置&#34;&gt;#&lt;/a&gt; 配置&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;把内容 git clone 下来， &lt;code&gt;git clone git@github.com:Sneexy/WebsiteContent.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在项目文件夹 &lt;code&gt;WebsiteContent&lt;/code&gt;  下把 shoka（&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==&#34;&gt;hexo-theme-shoka&lt;/span&gt;）拉下来，文件夹名字改为 shoka&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm i hexo-renderer-multi-markdown-it --save --ignore-scripts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;npm install&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;环境整坏了时：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;卸载 nodejs：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY3Nkbi5uZXQvdGFncy9NdHphUWczc016YzVOelF0WW14dlp3TzBPME9PME8wTy5odG1s&#34;&gt;brew mac 卸载 nodejs - CSDN&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;重装 nodejs（for npm）：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwODkxMzIyL2FydGljbGUvZGV0YWlscy8xMDkzMzYyNjY=&#34;&gt;mac 通过 HomeBrew 安装 node.js（自带 npm 包管理器）&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;添加包依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加包依赖&#34;&gt;#&lt;/a&gt; 添加包依赖&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;package.json&lt;/code&gt;  的 &lt;code&gt;dependencies&lt;/code&gt;  里按格式添加&lt;/p&gt;
+&lt;h1 id=&#34;使用效果&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用效果&#34;&gt;#&lt;/a&gt; 使用效果&lt;/h1&gt;
+&lt;h2 id=&#34;添加友链&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加友链&#34;&gt;#&lt;/a&gt; 添加友链&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;code&gt;source/friends&lt;/code&gt;  文件夹的 &lt;code&gt;_data.yml&lt;/code&gt;  里按照以下格式（&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9zcGVjaWFsLw==&#34;&gt;项介绍&lt;/span&gt;）&lt;/p&gt;
+&lt;figure class=&#34;highlight yml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;token key atrule&#34;&gt;site&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#站点名称&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;owner&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#管理员名字&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#站点网址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;desc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#简短描述&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#一张图片&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;#颜色代码&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 &lt;code&gt;source/friends&lt;/code&gt;  文件夹的 &lt;code&gt;index.md&lt;/code&gt;  里适当地方写上 &lt;code&gt;&amp;#123;% linksfile friends/_data.yml %&amp;#125;&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;隐藏文字&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#隐藏文字&#34;&gt;#&lt;/a&gt; 隐藏文字&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9zcGVjaWFsLw==&#34;&gt;功能介绍&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;使用格式（感叹号和文字间不要有空格）（本地不能查看，需要渲染后网站上看）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;!!黑幕黑幕黑幕黑幕黑幕黑幕!!： 鼠标滑过显示内容
+!!模糊模糊模糊模糊模糊模糊!!&amp;#123;.bulr&amp;#125; ： 选中文字显示内容
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="网站" scheme="https://sneexy.github.io/categories/%E7%BD%91%E7%AB%99/" />
+        <category term="工具" scheme="https://sneexy.github.io/tags/%E5%B7%A5%E5%85%B7/" />
+        <updated>2022-08-27T04:16:45.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://sneexy.github.io/2022/08/27/drama/CV/%E9%99%88%E6%83%B3%E5%85%88%E7%94%9F-%E9%99%88%E5%B0%8FC/</id>
+        <title>陈想先生/陈小C</title>
+        <link rel="alternate" href="https://sneexy.github.io/2022/08/27/drama/CV/%E9%99%88%E6%83%B3%E5%85%88%E7%94%9F-%E9%99%88%E5%B0%8FC/"/>
+        <content type="html">&lt;p&gt;之前写过一个推荐贴：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9ncm91cC90b3BpYy8yNjU2NDM4MjgvP19pPTE1NzUxNTBxMXVkbll1LDE1NzUyMThxMXVkbll1&#34;&gt;CV 陈小 C / 陈想先生 - 气质美人 (douban.com)&lt;/span&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;陈小c的声音总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#陈小c的声音总结&#34;&gt;#&lt;/a&gt; 陈小 C 的声音总结&lt;/h2&gt;
+&lt;p&gt;陈小 C 的声音有玉的质感，温润、干净、气质、高贵、自信的大美人，可以是女王受，虽然是纤细的受音，但可以很有气势。可以执着、腹黑、傲娇、冰冷，也可以天真、沙雕，风骚、闷骚。笑起来和撒娇的时候最让人受不住。&lt;/p&gt;
+&lt;p&gt;听过的剧里，他的演技都挺好的，虽然声线有限制，但是情绪很饱满多变，配得很自然。听过的剧里《困流》和《我只要你》角色性格比较立体，演技比较明显。&lt;/p&gt;
+&lt;p&gt;选剧也很对我胃口，大部分都挺虐的，就算是 he，也得虐过了再 he。而且还得是从过去，到故事开始，到故事结尾，一直虐。身心都要虐。典型的有《桃魅》。&lt;/p&gt;
+&lt;p&gt;很多人分不清他和林予曦，但是在我听来，一个是大家闺秀，一个是小家碧玉，陈小 C 虽然是受音，但攻气十足，高傲自信；林予曦的声音就没什么攻击力，软软糯糯像个小白兔，让人想 rua，发脾气跟撒娇卖萌似的，很多时候角色自卑内省。&lt;/p&gt;
+&lt;h2 id=&#34;声音指路&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#声音指路&#34;&gt;#&lt;/a&gt; 声音指路&lt;/h2&gt;
+&lt;p&gt;&lt;div class=&#34;links&#34;&gt;&lt;div class=&#34;item&#34; title=&#34;陈想先生&#34;&gt;&lt;span class=&#34;exturl image&#34; data-url=&#34;aHR0cHM6Ly93d3cubWlzc2V2YW4uY29tL3NlaXkvMTE0OQ==&#34; data-background-image=&#34;/images/avatar.jpg&#34;&gt;&lt;/span&gt;
+          &lt;div class=&#34;info&#34;&gt;
+          &lt;span class=&#34;exturl title&#34; data-url=&#34;aHR0cHM6Ly93d3cubWlzc2V2YW4uY29tL3NlaXkvMTE0OQ==&#34;&gt;陈想先生-水岸聆音&lt;/span&gt;
+          &lt;p class=&#34;desc&#34;&gt;猫耳FM：剧集&amp;朗读&lt;/p&gt;
+          &lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;item&#34; title=&#34;周小元宵的槲寄生&#34;&gt;&lt;span class=&#34;exturl image&#34; data-url=&#34;aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vOTYxOTIxMTIvc2VhcmNoL3ZpZGVvP2tleXdvcmQ9JUU5JTk5JTg4JUU2JTgzJUIzJUU1JTg1JTg4JUU3JTk0JTlG&#34; data-background-image=&#34;/images/404.png&#34;&gt;&lt;/span&gt;
+          &lt;div class=&#34;info&#34;&gt;
+          &lt;span class=&#34;exturl title&#34; data-url=&#34;aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vOTYxOTIxMTIvc2VhcmNoL3ZpZGVvP2tleXdvcmQ9JUU5JTk5JTg4JUU2JTgzJUIzJUU1JTg1JTg4JUU3JTk0JTlG&#34;&gt;周小元宵的槲寄生&lt;/span&gt;
+          &lt;p class=&#34;desc&#34;&gt;B站-朗读单截&lt;/p&gt;
+          &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每周三晚漫播直播&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;听过的剧时间顺序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#听过的剧时间顺序&#34;&gt;#&lt;/a&gt; 听过的剧（时间顺序）&lt;/h2&gt;
+&lt;p&gt;格式：《标题》声优：评分（期数）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;《困流》阿册 / HolyNightX 陈小 C：★★★★★（5）&lt;/li&gt;
+&lt;li&gt;《友谊的小船，说翻就翻》陈小 CX 林予曦：★★★☆（1）&lt;/li&gt;
+&lt;li&gt;《我只要你》轩辕靖日 X 陈小 C：★★★★☆（3）&lt;/li&gt;
+&lt;li&gt;《桃魅》风允之 X 陈小 C：★★★★☆（4）&lt;/li&gt;
+&lt;li&gt;《姑妄听之》轩辕靖日 X 陈小 C：★★★★（1）&lt;/li&gt;
+&lt;li&gt;《一个人的绅士》羊仔 X 陈小 C：★★★☆（1）&lt;/li&gt;
+&lt;li&gt;《都是赖床惹的祸》陈小 CX 小坠：★★★☆（1）&lt;/li&gt;
+&lt;li&gt;《喜欢你》鲨鱼 X 陈小 C：★★★☆（1）&lt;/li&gt;
+&lt;li&gt;《未亡人》鲨鱼 X 陈小 C：★★★（1）&lt;/li&gt;
+&lt;li&gt;《罂粟》魅影之声 X 陈小 C：★★★★（1）&lt;/li&gt;
+&lt;li&gt;《痛感》夙七烈 X 陈小 C：★★★☆（1）&lt;/li&gt;
+&lt;li&gt;[不更]《关河令》陈小 CX 矜持 ING：★★★☆（1）&lt;/li&gt;
+&lt;li&gt;《你是人间小甜饼》 HolyNight X 陈小 C：★★★（2）&lt;/li&gt;
+&lt;li&gt;《年少与妖娆》唱油条 X 陈小 C：★★★★☆（5）&lt;/li&gt;
+&lt;li&gt;[不更]《三十而受》阎摩 X 陈小 C：★★★☆（2）&lt;/li&gt;
+&lt;li&gt;[不更]《被爱妄想症》江笙 X 陈小 C（2）&lt;/li&gt;
+&lt;li&gt;[不更]《折枝 / 阶下囚》燃 X 陈小 C（2）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;追平&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#追平&#34;&gt;#&lt;/a&gt; 追平&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;《二进制》正经太郎 X 陈小 C：★★★★（4）&lt;/li&gt;
+&lt;li&gt;《我和替身渣攻恋爱后白月光回来了》续续点灯 X 陈小 C（1）&lt;/li&gt;
+&lt;li&gt;《替罪羊》轩辕靖日 X 陈小 C（3 上）&lt;/li&gt;
+&lt;li&gt;《满分赝品》皮皮鲨 X 陈想先生（1）&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="广播剧" scheme="https://sneexy.github.io/categories/drama/" />
+        <category term="声优" scheme="https://sneexy.github.io/categories/drama/CV/" />
+        <category term="声优" scheme="https://sneexy.github.io/tags/%E5%A3%B0%E4%BC%98/" />
+        <category term="女王受" scheme="https://sneexy.github.io/tags/%E5%A5%B3%E7%8E%8B%E5%8F%97/" />
+        <category term="美人音" scheme="https://sneexy.github.io/tags/%E7%BE%8E%E4%BA%BA%E9%9F%B3/" />
+        <updated>2022-08-27T01:24:41.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://sneexy.github.io/2022/08/26/writing/Hello-World/</id>
+        <title>Hello World</title>
+        <link rel="alternate" href="https://sneexy.github.io/2022/08/26/writing/Hello-World/"/>
+        <content type="html">&lt;p&gt;感谢大佬 &lt;a href=&#34;zhaoyangmushiyi.github.io&#34;&gt;@Monochrome&lt;/a&gt; 帮忙建站。代码和服务托管在 Github，网站框架为&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuLw==&#34;&gt; Hexo&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;一直以来的 All in One 的想法终于可以在这里实现了，也不用担心和谐。&lt;/p&gt;
+&lt;p&gt;记录一些声优、广播剧、编程相关，也可能出现其他一切。&lt;/p&gt;
+&lt;p&gt;暂时使用了小 C 的头像，最近很喜欢小 C (๑・͈ᴗ・͈)。&lt;/p&gt;
+</content>
+        <category term="日志" scheme="https://sneexy.github.io/categories/writing/" />
+        <category term="Hello_World" scheme="https://sneexy.github.io/tags/Hello-World/" />
+        <category term="日志" scheme="https://sneexy.github.io/tags/%E6%97%A5%E5%BF%97/" />
+        <updated>2022-08-26T14:45:21.000Z</updated>
+    </entry>
+</feed>
