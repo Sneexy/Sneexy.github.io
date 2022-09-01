@@ -7,6 +7,16 @@
     "home_page_url": "https://sneexy.github.io",
     "items": [
         {
+            "id": "https://sneexy.github.io/2022/09/01/life/%E7%90%86%E8%B4%A2/",
+            "url": "https://sneexy.github.io/2022/09/01/life/%E7%90%86%E8%B4%A2/",
+            "title": "理财",
+            "date_published": "2022-09-01T00:17:33.000Z",
+            "content_html": "<ul>\n<li>\n<p>理财第一条：<strong>不碰股票</strong></p>\n</li>\n<li>\n<p>基金：<strong>货币 A</strong>（低风险，包括余额宝），货币 B 中低风险，货币 C 中 / 高风险。</p>\n</li>\n<li>\n<p>银行理财</p>\n<ul>\n<li>招商银行\n<ul>\n<li><strong>朝朝宝</strong>（可以，不过利率也在降。最高 5w，活期）</li>\n<li><s>月月宝、季季宝、半年宝</s>（坑）</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>\n<p>定期</p>\n<ul>\n<li>12 存单法、24 存单法、36 存单法</li>\n</ul>\n</li>\n</ul>\n<p><strong>总结</strong>：综合了一下，手头留一部分活钱，然后每个月攒下的钱：</p>\n<ul>\n<li>第一年：分为 3 等份，分别存 1、2、3 年定期</li>\n<li>第二年：到时候再想，反正最终都要变成 3 年期</li>\n</ul>\n",
+            "tags": [
+                "生活"
+            ]
+        },
+        {
             "id": "https://sneexy.github.io/2022/08/28/drama/%E3%80%90Sneexy%E3%80%912021%E5%B9%BF%E6%92%AD%E5%89%A7%E5%90%AC%E5%89%A7%E8%AE%B0%E5%BD%95/",
             "url": "https://sneexy.github.io/2022/08/28/drama/%E3%80%90Sneexy%E3%80%912021%E5%B9%BF%E6%92%AD%E5%89%A7%E5%90%AC%E5%89%A7%E8%AE%B0%E5%BD%95/",
             "title": "【Sneexy】2021广播剧听剧记录",
