@@ -35,10 +35,22 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;黄金&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;金条：需要注意买可回购的黄金，比如 “中国黄金” 官方店，但是售价偏高。&lt;/li&gt;
+&lt;li&gt;&lt;s&gt;支付宝的：手续费&lt;/s&gt;&lt;/li&gt;
+&lt;li&gt;纸黄金：可以，但是很多银行不卖了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;定期&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;12 存单法、24 存单法、36 存单法&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY2FkZm9yZXguY29tL3RfeWhsbC9kaW5ncWkuaHRtbA==&#34;&gt;银行定期利率表 2022 最新利率，定期利率表一览（最完整版） - 财梯网 (cadforex.com)&lt;/span&gt; （只作参考）&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;reits：不懂，先不碰&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;：综合了一下，手头留一部分活钱，然后每个月攒下的钱：&lt;/p&gt;
@@ -658,6 +670,12 @@
 &lt;li&gt;&lt;span class=&#34;spoiler&#34; title=&#34;你知道得太多了&#34;&gt;有车无剧情&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/details&gt;
+&lt;details class=&#34;success&#34;&gt;&lt;summary&gt;听过的一些现场pia戏&lt;/summary&gt;&lt;div&gt;
+&lt;ul&gt;
+&lt;li&gt;《缝纫机之恋》顾辰 X 矜持 ING&lt;/li&gt;
+&lt;li&gt;《当杀手接到了骚扰电话》6 熙 X 矜持 ING&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/details&gt;
 &lt;h4 id=&#34;51-&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#51-&#34;&gt;#&lt;/a&gt; 51-&lt;/h4&gt;
 &lt;details class=&#34;info&#34;&gt;&lt;summary&gt;《七年止痒》杨东旭X天空：★★★★（1）&lt;/summary&gt;&lt;div&gt;
 &lt;ul&gt;
@@ -828,10 +846,12 @@
 &lt;li&gt;哥哥 cp 擎苍 X 柳凄，说好的番外见结果番外只有主 cp。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/details&gt;
-&lt;details class=&#34;success&#34;&gt;&lt;summary&gt;听过的一些现场pia戏&lt;/summary&gt;&lt;div&gt;
+&lt;details class=&#34;success&#34;&gt;&lt;summary&gt;《爷们儿》Holynight X 陈小C：★★★☆（3）&lt;/summary&gt;&lt;div&gt;
 &lt;ul&gt;
-&lt;li&gt;《缝纫机之恋》顾辰 X 矜持 ING&lt;/li&gt;
-&lt;li&gt;《当杀手接到了骚扰电话》6 熙 X 矜持 ING&lt;/li&gt;
+&lt;li&gt;【22.9.3】主角：严肆 X 乔已&lt;/li&gt;
+&lt;li&gt;静水边原著。女王 C，又是舞蹈教练又是特工的，又美又飒。严肆看起来很霸道其实是很不经撩的忠犬攻。小 C 的美强惨角色又添一员，被组织背叛，把委屈都往肚里咽。林纾也很可怜，爱上极恨的人。&lt;/li&gt;
+&lt;li&gt;后期不错&lt;/li&gt;
+&lt;li&gt;台词还是比较烫嘴的，外加&lt;span class=&#34;spoiler&#34; title=&#34;你知道得太多了&#34;&gt;有那么一些车&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/details&gt;
 </content>
@@ -861,9 +881,15 @@
 &lt;li&gt;hexo d&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;运行（升级版）
+&lt;ul&gt;
+&lt;li&gt;跑起来：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo server&lt;/li&gt;
+&lt;li&gt;推上去：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;git 命令（hexo d 就够了）
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;git 命令（平时 hexo d 就够了）
 &lt;ul&gt;
 &lt;li&gt;git add .&lt;/li&gt;
 &lt;li&gt;git commit -m &amp;quot;&amp;quot;&lt;/li&gt;
