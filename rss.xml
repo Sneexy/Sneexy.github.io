@@ -10,11 +10,81 @@
         </author>
         <description>热爱可抵岁月漫长</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 25 Sep 2022 00:30:52 +0800</pubDate>
-        <lastBuildDate>Sun, 25 Sep 2022 00:30:52 +0800</lastBuildDate>
+        <pubDate>Thu, 29 Sep 2022 02:01:57 +0800</pubDate>
+        <lastBuildDate>Thu, 29 Sep 2022 02:01:57 +0800</lastBuildDate>
         <category term="编程" />
         <category term="广播剧" />
         <category term="音乐" />
+        <item>
+            <guid isPermalink="true">https://sneexy.github.io/2022/09/29/coding/%E8%A7%A3%E5%86%B3%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9B%B8%E4%BA%92%E5%BC%95%E7%94%A8%E5%AF%BC%E8%87%B4%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/</guid>
+            <title>解决智能指针相互引用导致的内存泄露</title>
+            <link>https://sneexy.github.io/2022/09/29/coding/%E8%A7%A3%E5%86%B3%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88%E7%9B%B8%E4%BA%92%E5%BC%95%E7%94%A8%E5%AF%BC%E8%87%B4%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/</link>
+            <category term="编程" scheme="https://sneexy.github.io/categories/coding/" />
+            <category term="C++" scheme="https://sneexy.github.io/tags/C/" />
+            <category term="OC" scheme="https://sneexy.github.io/tags/OC/" />
+            <category term="编程" scheme="https://sneexy.github.io/tags/%E7%BC%96%E7%A8%8B/" />
+            <pubDate>Thu, 29 Sep 2022 02:01:57 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;解决智能指针相互引用导致的内存泄露&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决智能指针相互引用导致的内存泄露&#34;&gt;#&lt;/a&gt; 解决智能指针相互引用导致的内存泄露&lt;/h1&gt;
+&lt;h2 id=&#34;问题描述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#问题描述&#34;&gt;#&lt;/a&gt; 问题描述&lt;/h2&gt;
+&lt;p&gt;智能指针相互持有时会造成内存泄露。智能指针和普通指针相互持有也是。&lt;/p&gt;
+&lt;p&gt;一般出现在共享指针（shared_ptr）之间，或者共享指针和普通指针（xxx *）之间。&lt;/p&gt;
+&lt;h2 id=&#34;解决办法&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#解决办法&#34;&gt;#&lt;/a&gt; 解决办法&lt;/h2&gt;
+&lt;p&gt;如果是共享指针之间相互持有：将其中一个改为 weak_ptr。&lt;/p&gt;
+&lt;p&gt;如果是共享指针和普通指针相互持有：将普通指针改为 weak_ptr。&lt;/p&gt;
+&lt;h3 id=&#34;weak_ptr如何操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#weak_ptr如何操作&#34;&gt;#&lt;/a&gt; weak_ptr 如何操作&lt;/h3&gt;
+&lt;p&gt;weak_ptr 没有重载 &lt;code&gt;operator-&amp;gt;&lt;/code&gt;  和 &lt;code&gt;operator *&lt;/code&gt;  操作符，因此不可直接通过 weak_ptr 使用对象。&lt;/p&gt;
+&lt;p&gt;使用方法&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn1&#34; id=&#34;fnref1&#34;&gt;[1]&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;shared_ptr&amp;lt;int&amp;gt; ptr = make_shared&amp;lt;int&amp;gt;(10); 
+weak_ptr&amp;lt;int&amp;gt; ptr1 = ptr; // 必须使用shared_ptr初始化weak_ptr  
+shared_ptr&amp;lt;int&amp;gt; ptr2 = ptr1.lock(); // 利用返回的shared_ptr初始化
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;weak_ptr中构造函数使用了this&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#weak_ptr中构造函数使用了this&#34;&gt;#&lt;/a&gt; weak_ptr 中构造函数使用了 this&lt;/h3&gt;
+&lt;p&gt;weak_ptr 指向的对象，其类的构造函数中不能使用 &lt;code&gt;this&lt;/code&gt; ，需要使用 &lt;code&gt;shared_from_this()&lt;/code&gt;  来代替。原因是：智能指针在构造函数执行完毕后生成，此时还不存在引用计数指针。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;shared_from_this()&lt;/code&gt;  的使用方法为，以 EnableSharedPtr 类为例&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使 &lt;code&gt;EnableSharedPtr&lt;/code&gt;  类继承自 &lt;code&gt;std::enable_shared_from_this&amp;lt;EnableSharedPtr&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;this&lt;/code&gt;  直接替换为 &lt;code&gt;shared_from_this()&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;这一点是构造函数中特有的：需要在构造函数完成后再调用含有 &lt;code&gt;shared_from_this()&lt;/code&gt;  的函数（例如&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2:1&#34;&gt;[2:1]&lt;/a&gt;&lt;/sup&gt;中的 &lt;code&gt;GetObject()&lt;/code&gt; ）为对应变量真正赋值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;附一些看过的帖子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#附一些看过的帖子&#34;&gt;#&lt;/a&gt; 附：一些看过的帖子&lt;/h3&gt;
+&lt;p&gt;有助于了解，不一定用上了&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9xYS4xcjFnLmNvbS9zZi9hc2svMzUyMjI4OTAxMS8=&#34;&gt;即使正确使用 make_shared,shared_from_this () 也会导致 std :: bad_weak_ptr | (1r1g.com)&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aGlxaWFuZy5vcmcvY29kaW5nL3N0ZC1tYWtlLXNoYXJlZC1lbmFibGUtc2hhcmVkLWZyb20tdGhpcy5odG1s&#34;&gt;智能指针的辅助函数 std::make_shared 和 std::enable_shared_from_this - 阅微堂 (zhiqiang.org)&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZW5rdS5iYWlkdS5jb20vdmlldy85MzJmOTkzMDE3NzkxNzExY2M3OTMxYjc2NWNlMDUwODc2MzI3NTMyLmh0bWw=&#34;&gt;C++ 智能指针的正确使用方式 - 百度文库 (baidu.com)&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dldHRvZ2V0dG8vYXJ0aWNsZS9kZXRhaWxzLzYwMzIxNTY2&#34;&gt;weak_ptr 与 shared_ptr_gettogetto 的博客 - CSDN 博客&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x4aF9fX19fL2FydGljbGUvZGV0YWlscy8xMjA2OTk1MjA=&#34;&gt;OC 内存泄漏_Titanium、的博客 - CSDN 博客_oc 内存泄漏&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzUxOTU1NDcwL2FydGljbGUvZGV0YWlscy8xMTgwNzUzODQ=&#34;&gt;[C++11] shared_ptr 使用的注意事项 (内存被重复析构，内存泄漏问题)_唐火的博客 - CSDN 博客_指针重复析构&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjE2ODA1NC9hcnRpY2xlL2RldGFpbHMvMTE5NTE1MjM5&#34;&gt;shared_ptr 共享指针的陷阱，交叉引用导致内存泄漏_过往山海的博客 - CSDN 博客_共享指针内存泄漏&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cub3Jjb2RlLmNvbS9xdWVzdGlvbi8yNTA4MDlfazkzMGUyLmh0bWw=&#34;&gt;使用指南：共享指针与普通指针 - 或代码 (orcode.com)&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr class=&#34;footnotes-sep&#34; /&gt;
+&lt;section class=&#34;footnotes&#34;&gt;
+&lt;ol class=&#34;footnotes-list&#34;&gt;
+&lt;li id=&#34;fn1&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTU5MDQ3My9hcnRpY2xlL2RldGFpbHMvMTEzMDU3NTQ1&#34;&gt;弱类型指针 weak_ptr 的使用 (详解)_肥肥胖胖是太阳的博客 - CSDN 博客_weak_ptr 使用&lt;/span&gt; &lt;a href=&#34;#fnref1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn2&#34; class=&#34;footnote-item&#34;&gt;&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDUxNzY1Ni9hcnRpY2xlL2RldGFpbHMvMTE0MTk1MjY1&#34;&gt;智能指针之与 shared_ptr 有关的 enable_shared_from_this 类模板 04_Mango 酱的博客 - CSDN 博客&lt;/span&gt; &lt;a href=&#34;#fnref2&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt; &lt;a href=&#34;#fnref2:1&#34; class=&#34;footnote-backref&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://sneexy.github.io/2022/09/25/drama/%E5%B9%BF%E6%92%AD%E5%89%A7%E5%8D%95%E6%9C%9F%E5%89%A7%E8%AF%84/</guid>
             <title>广播剧单期剧评</title>
@@ -57,6 +127,34 @@
 &lt;li&gt;13&#39;。喂饭那段比较搞笑，特别是内心 OS“撑死你撑死你……” 那句。&lt;/li&gt;
 &lt;li&gt;揭开了一些剧院往事，司镜若和董晓伟的伤疤。（看弹幕才知道董晓伟的 CV 是郭浩然，又配了一个瘦音胖子哈哈，不怪司镜若说董看起来 120 斤，这听起来也只有 120 斤）&lt;br /&gt;
 不过他一直执着于即使牺牲重要的东西（比如感情）也要挽救剧院，另一边也这样要求司镜若，有点执念太深吧，毕竟人更重要。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第七、八期&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第 7 期过渡一下。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第 8 期的戏中戏表现得太好了，一直到杀青出不了戏。冬冬演技真好，两个角色都很有代入感。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;后期优秀&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第九、十期&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;完结了，这两期司镜若老是装傻。收尾也有些仓促了，停在安戚的故事上。就从安戚这两期的戏份来看，也不完全是坏人，反而司镜若他爸清高得不切实际，行为又没有跟上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;各种花絮、戏中戏《烽火》未播片段&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;这部剧的售后服务很饱满诶。戏中戏挺好的，中秋番外里 DK 的难过但不能崩溃的脆弱感不错，七夕的录屏和春节的沙雕，冬冬喊 “哥哥” 的合集太撒娇了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;导演用心了，花絮中的几个片段剧中确实能感受到，完成度很高。让小孩儿配音确实比很多夹着嗓子配的自然。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再次表白冬冬的配音，受音太香了。其他 CV 也都挺好的&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/details&gt;
 &lt;details class=&#34;success&#34;&gt;&lt;summary&gt;《无耻之徒》斑马（役姜晓宁）X 笑意（役韩嘉）&lt;/summary&gt;&lt;div&gt;
@@ -1760,6 +1858,30 @@
 &lt;li&gt;【22.9.20】主角：季钦 X 泽安&lt;/li&gt;
 &lt;li&gt;那两年的泽安其实挺好的，替他铺好一切，最后还自责抑郁了很长时间。原本的泽安有些不值，家人又不是不能接受他，朋友不习惯也可以远离，季钦不爱他就分吧，太跟自己较劲了，一定要获得别人的认同，可惜，毁了自己也毁了替身的用心良苦。&lt;/li&gt;
 &lt;li&gt;主役声音好听&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;details class=&#34;info&#34;&gt;&lt;summary&gt;《营销号说你喜欢我 第一季》DK（役周秋隼）X 冬冬（役司镜若）：★★★★（全十期）&lt;/summary&gt;&lt;div&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;整体配音、导演、后期都挺到位的。很多细节很自然又很让人入戏，人物也比较饱满有特点。不过最后几期收尾略仓促，故事还没讲完，连标题都没切到，配角戏份比较重。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最喜欢的是冬冬的声音和戏中戏《烽火》。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;很喜欢冬冬的受音，这个角色还比较立体，不是傻白甜，会撒撒娇卖卖萌，但是脑子还比较清醒，看着淡定但内心 OS 有很多委屈 / 搞笑 / 咆哮体之类的。整体演技都挺好，几个小孩儿还真找了小孩来配，戏中戏里冬冬和 DK 的演技忒好了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;《烽火》背景是民国时期，逻辑比较顺，be，养兄弟之间的感情很真切，比剧本身更有实感。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;details class=&#34;success&#34;&gt;&lt;summary&gt;《犹记斐然》弦小雾（役游信） X 朴枫（役季斐然）：★★★（全一期）&lt;/summary&gt;&lt;div&gt;
+&lt;ul&gt;
+&lt;li&gt;误会。弦小雾声音好听，雅致，朴枫也不错，不过还是没听出来。&lt;/li&gt;
+&lt;li&gt;在猫耳没字幕地听完了，剧情没完全 get 到，结果发现 B 站有字幕且弹幕多很多。看了才明白误会在哪里，可是两个人相爱，总不至于一丝痕迹也没有的。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/details&gt;
  ]]></description>
